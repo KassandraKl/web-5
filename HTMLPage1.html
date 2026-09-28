@@ -1,0 +1,1028 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Александра Калашникова — Дизайнер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #121212;
+            --bg-secondary: #1E1E1E;
+            --bg-card: #262626;
+            --text-primary: #F5F5F5;
+            --text-secondary: #A0A0A0;
+            --accent: #E63946;
+            --border: #333333;
+            --radius: 8px;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Anonymous Pro', -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+        }
+
+            .section-title::after {
+                content: '';
+                display: block;
+                width: 50px;
+                height: 1px;
+                background-color: var(--accent);
+                margin-top: 15px;
+            }
+
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+            .logo span {
+                color: var(--accent);
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+                letter-spacing: 0.5px;
+                position: relative;
+            }
+
+                .nav-links a::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 0;
+                    height: 1px;
+                    background-color: var(--accent);
+                    transition: var(--transition);
+                }
+
+                .nav-links a:hover {
+                    color: var(--text-primary);
+                }
+
+                    .nav-links a:hover::after {
+                        width: 100%;
+                    }
+
+        .profile-section {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .profile-grid {
+            display: flex;
+            gap: 50px;
+            align-items: stretch; 
+        }
+
+        .profile-photo {
+            width: 50%; 
+            border-radius: var(--radius);
+            overflow: hidden;
+            background-color:black;
+            position: relative;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .profile_photo_img {
+
+            object-fit: cover;
+        }
+
+        .profile-info {
+            padding-top: 0; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+        }
+
+        .profile-name {
+            font-size: 2.9rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .profile-title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .profile-description {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+        }
+
+            .tag:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+
+        .design-works {
+            background-color: var(--bg-main);
+        }
+
+        .accordion-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .accordion-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+            .accordion-item:hover {
+                border-color: var(--accent);
+            }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            user-select: none;
+        }
+
+            .accordion-header:hover {
+                background-color: rgba(255, 255, 255, 0.02);
+            }
+
+        .accordion-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            filter: grayscale(100%);
+            width: 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .accordion-item.active .accordion-icon {
+            filter: grayscale(0%);
+        }
+
+        .accordion-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .accordion-arrow {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .accordion-content-inner {
+            padding: 0 25px 25px 70px;
+        }
+
+        .accordion-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .work-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .work-detail-tag {
+            padding: 4px 12px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        .work-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: auto;
+            border-radius: 6px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            filter: grayscale(100%);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+            .gallery-item:hover {
+                filter: grayscale(0%);
+                transform: scale(1.02);
+                border-color: var(--accent);
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+                .gallery-item img.loaded {
+                    opacity: 1;
+                }
+
+        .gallery-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            filter: grayscale(100%);
+        }
+
+        .web-works {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-section {
+            background-color: var(--bg-main);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+            .contact-item:hover {
+                border-color: var(--accent);
+                transform: translateX(5px);
+            }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-secondary);
+            border-radius: 50%;
+            flex-shrink: 0;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            filter: grayscale(0%);
+        }
+
+        .contact-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+            .contact-text strong {
+                display: block;
+                color: var(--text-primary);
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 15px;
+                background-color: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                color: var(--text-primary);
+                font-family: inherit;
+                font-size: 0.95rem;
+                transition: var(--transition);
+            }
+
+                .contact-form input:focus,
+                .contact-form textarea:focus {
+                    outline: none;
+                    border-color: var(--accent);
+                }
+
+            .contact-form textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+
+        .btn-submit {
+            padding: 14px 30px;
+            background-color: var(--accent);
+            color: var(--bg-main);
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+            .btn-submit:hover {
+                background-color: var(--accent);
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px var(--accent);
+            }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+            .footer-text span {
+                color: var(--accent);
+            }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+
+            .profile-name {
+                font-size: 2.2rem;
+            }
+
+            .profile-tags {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-submit {
+                width: 100%;
+            }
+
+            .accordion-content-inner {
+                padding-left: 25px;
+            }
+
+            .work-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 50px 0;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .profile-title {
+                font-size: 0.9rem;
+            }
+
+            .accordion-header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">АК<span>.</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#profile">О себе</a></li>
+                    <li><a href="#design">Дизайн</a></li>
+                    <li><a href="#web">Веб-дизайн</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="profile-section" id="profile">
+        <div class="container">
+            <div class="profile-grid">
+                <div class="profile-photo">
+                    <span class="profile_photo_img">
+                        <img src="images/1.jpg" alt="profile_photo_img">
+                    </span>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">Александра <span>Калашникова</span></h1>
+                    <p class="profile-title">Графический и веб-дизайнер</p>
+                    <p class="profile-description">
+                        Студентка 5 курса, совмещаю учёбу с практикой в дизайне.
+                        Специализируюсь на разработке фирменного стиля, создании лендингов
+                        и проектировании интерфейсов для веб и мобильных приложений.
+                        Работаю в Figma, уверенно владею инструментами графического дизайна
+                        и добавляю базовую анимацию для оживления проектов.
+                    </p>
+                    <div class="profile-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Adobe Photoshop</span>
+                        <span class="tag">Illustrator</span>
+                        <span class="tag">Лендинги</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">Анимация</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="design-works" id="design">
+        <div class="container">
+            <p class="section-label">Портфолио</p>
+            <h2 class="section-title">Графический дизайн</h2>
+            <div class="accordion-list">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">🎨</span>
+                            <span class="accordion-name">Фирменный стиль</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Разработка айдентики для бренда: логотип, цветовая палитра, типографика, фирменные элементы.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Логотип</span>
+                                <span class="work-detail-tag">Палитра</span>
+                                <span class="work-detail-tag">Типографика</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/фирстиль1.jpg" alt="Фирменный стиль 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/фирстиль2.png" alt="Фирменный стиль 2" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/фирстиль31.jpg" alt="Фирменный стиль 3" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">📚</span>
+                            <span class="accordion-name">Полиграфия</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Дизайн печатной продукции: визитки, буклеты, плакаты, каталоги. Подготовка к печати.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Визитки</span>
+                                <span class="work-detail-tag">Буклеты</span>
+                                <span class="work-detail-tag">Плакаты</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/визитка1.png" alt="Полиграфия 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/плакат1.jpg" alt="Полиграфия 2" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">📖</span>
+                            <span class="accordion-name">Брендбук</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Руководство по использованию фирменного стиля: гайдлайны, носители, примеры применения.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Гайдлайны</span>
+                                <span class="work-detail-tag">Носители</span>
+                                <span class="work-detail-tag">Примеры</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/б1.jpg" alt="Брендбук 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/б2.jpg" alt="Брендбук 2" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/б3.jpg" alt="Брендбук 3" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">🏷️</span>
+                            <span class="accordion-name">Упаковка</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Концепция упаковки продукта: дизайн, материалы, визуализация, подготовка к производству.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Дизайн</span>
+                                <span class="work-detail-tag">Материалы</span>
+                                <span class="work-detail-tag">Визуализация</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/уп1.png" alt="Упаковка 1" loading="lazy">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">📱</span>
+                            <span class="accordion-name">Соцсети</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Оформление социальных сетей: шаблоны постов, обложки, сторис, визуальная концепция.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Шаблоны</span>
+                                <span class="work-detail-tag">Обложки</span>
+                                <span class="work-detail-tag">Сторис</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/соц1.jpg" alt="Соцсети 1" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">📊</span>
+                            <span class="accordion-name">Презентации</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Дизайн презентаций и питч-деков: структура, визуальная подача, инфографика.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Структура</span>
+                                <span class="work-detail-tag">Подача</span>
+                                <span class="work-detail-tag">Инфографика</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/п1.png" alt="Презентации 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/п2.png" alt="Презентации 2" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+    <section class="web-works" id="web">
+        <div class="container">
+            <p class="section-label">Портфолио</p>
+            <h2 class="section-title">Веб-дизайн</h2>
+            <div class="accordion-list">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">🖥️</span>
+                            <span class="accordion-name">Лендинги</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Посадочные страницы с базовой анимацией, адаптивным дизайном и продающей структурой.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Анимация</span>
+                                <span class="work-detail-tag">Адаптив</span>
+                                <span class="work-detail-tag">Продающая структура</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/лэнд1.png" alt="Лендинг 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/лэнд2.png" alt="Лендинг 2" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">💻</span>
+                            <span class="accordion-name">Веб-приложения</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Интерфейсы веб-сервисов: дизайн в Figma, прототипирование, UI-кит, компоненты.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Figma</span>
+                                <span class="work-detail-tag">Прототипы</span>
+                                <span class="work-detail-tag">UI-кит</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/веб1.png" alt="Веб-приложение 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/веб2.png" alt="Веб-приложение 2" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <span class="accordion-icon">📲</span>
+                            <span class="accordion-name">Мобильные приложения</span>
+                        </div>
+                        <span class="accordion-arrow">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Дизайн мобильных приложений: экраны, навигация, компоненты, иконки, интерактивные прототипы.</p>
+                            <div class="work-details">
+                                <span class="work-detail-tag">Экраны</span>
+                                <span class="work-detail-tag">Навигация</span>
+                                <span class="work-detail-tag">Компоненты</span>
+                            </div>
+                            <div class="work-gallery">
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/фрейм 3.png" alt="Мобильное приложение 1" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/прило2.png" alt="Мобильное приложение 2" loading="lazy">
+                                </div>
+                                <div class="gallery-item">
+                                    <span class="gallery-placeholder">🖼️</span>
+                                    <img src="images/прило3.png" alt="Мобильное приложение 3" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <p class="section-label">Связаться</p>
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            aleksndramay2711@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <strong>Телефон</strong>
+                            +7 (999) 123-45-67
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-text">
+                            <strong>Telegram</strong>
+                            @yahuu_tao
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📷</div>
+                        <div class="contact-text">
+                            <strong>VK</strong>
+                            @k.design
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <strong>Локация</strong>
+                            Работаю удалённо
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Расскажите о вашем проекте..." required></textarea>
+                    <button type="submit" class="btn-submit">Связь</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2026 Александра <span>Калашникова</span>. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                const item = this.parentElement;
+                const content = this.nextElementSibling;
+
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+                    }
+                });
+
+                item.classList.toggle('active');
+
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+
+                    const images = content.querySelectorAll('img');
+                    images.forEach(img => {
+                        if (!img.classList.contains('loaded')) {
+                            const markLoaded = () => {
+                                img.classList.add('loaded');
+                                if (img.previousElementSibling) {
+                                    img.previousElementSibling.style.display = 'none';
+                                }
+                                content.style.maxHeight = content.scrollHeight + 'px';
+                            };
+                            if (img.complete) {
+                                markLoaded();
+                            } else {
+                                img.addEventListener('load', markLoaded, { once: true });
+                            }
+                        }
+                    });
+                    setTimeout(() => {
+                        if (item.classList.contains('active')) {
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                        }
+                    }, 400);
+                } else {
+                    content.style.maxHeight = '0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
