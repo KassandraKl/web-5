@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Pop Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>K-Pop Dashboard</h1>
+        <p class="subtitle">CORTIS · аналитика канала</p>
+    </header>
+
+    <main class="dashboard">
+
+        <!-- 1. Статистика канала (левая колонка) -->
+        <section class="widget" id="yt-widget">
+            <div class="channel-left widget-body">
+                <div class="channel-avatar" id="avatar"></div>
+                <div class="channel-info">
+                    <h2 class="channel-name" id="channel-name">Загрузка...</h2>
+                    <p class="channel-handle" id="channel-handle">@—</p>
+                </div>
+            </div>
+            <div class="widget-stats">
+                <div class="stat">
+                    <span class="stat-value" id="subs">—</span>
+                    <span class="stat-label">Подписчиков</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="views">—</span>
+                    <span class="stat-label">Просмотров</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="videos-count">—</span>
+                    <span class="stat-label">Видео</span>
+                </div>
+            </div>
+            <div class="widget-footer">
+                <span class="dot"></span>
+                <span id="status">Загрузка...</span>
+            </div>
+        </section>
+
+        <!-- 2. Каунтдаун (правая колонка) -->
+        <section class="widget widget-accent">
+            <h2 class="widget-title">До камбэка</h2>
+            <div class="countdown widget-body" id="countdown">
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="cd-days">—</span>
+                    <span class="countdown-label">дней</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="cd-hours">—</span>
+                    <span class="countdown-label">часов</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="cd-mins">—</span>
+                    <span class="countdown-label">минут</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="cd-secs">—</span>
+                    <span class="countdown-label">секунд</span>
+                </div>
+            </div>
+            <p class="countdown-target" id="cd-target">—</p>
+        </section>
+
+        <!-- 3. Топ-5 видео (левая колонка) -->
+        <section class="widget">
+            <h2 class="widget-title">Топ-5 видео</h2>
+            <div class="video-list widget-body" id="top-videos">
+                <p class="loading">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- 4. Комментарии (правая колонка) -->
+        <section class="widget">
+            <h2 class="widget-title">Фандом говорит</h2>
+            <div class="comment-list widget-body" id="comment-list">
+                <p class="loading">Загрузка комментариев...</p>
+            </div>
+        </section>
+
+        <!-- 5. Последнее видео (левая колонка) -->
+        <section class="widget" id="latest-widget">
+            <h2 class="widget-title">Последнее видео</h2>
+            <div id="latest-video" class="widget-body">
+                <p class="loading">Загрузка...</p>
+            </div>
+        </section>
+
+        <!-- 6. Диаграмма (правая колонка) -->
+        <section class="widget">
+            <h2 class="widget-title">Вовлечённость последнего видео</h2>
+            <div class="chart-wrapper">
+                <canvas id="engagementChart"></canvas>
+            </div>
+            <div class="chart-legend" id="chart-legend">
+                <p class="loading">Загрузка данных...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

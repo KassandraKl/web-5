@@ -1,0 +1,543 @@
+/* ===== БАЗА ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #e8f5ec;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 48px 24px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===== ШАПКА ===== */
+.page-header {
+    max-width: 1200px;
+    margin: 0 auto 36px;
+}
+
+    .page-header h1 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
+        .page-header h1::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ef4444;
+            border-radius: 50%;
+            margin-right: 14px;
+            vertical-align: middle;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+        }
+
+.subtitle {
+    color: #4a6b55;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* ===== СЕТКА ===== */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* ===== ВИДЖЕТ ===== */
+.widget {
+    background: #ffffff;
+    border: 1px solid #d4e8da;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+    .widget:hover {
+        border-color: #ef4444;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(239, 68, 68, 0.12);
+        transform: translateY(-2px);
+    }
+
+.widget-title {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+    .widget-title::before {
+        content: "";
+        width: 4px;
+        height: 18px;
+        background: #ef4444;
+        border-radius: 2px;
+    }
+
+/* Заголовок сверху, всё остальное растягивается */
+.widget > *:not(.widget-title) {
+    flex: 1;
+
+}
+
+/* Универсальный класс для центрирования содержимого */
+.widget-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* ===== ВИДЖЕТ 1: статистика канала ===== */
+#yt-widget {
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+}
+
+    #yt-widget .channel-left {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+.channel-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f5ec, #c8e6d0);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 3px solid #ef4444;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.2);
+}
+
+.channel-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.channel-handle {
+    font-size: 0.9rem;
+    color: #4a6b55;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+#yt-widget .widget-stats {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ef4444;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.stat-label {
+    font-size: 0.68rem;
+    color: #4a6b55;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+#yt-widget .widget-footer {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #4a6b55;
+    padding-top: 16px;
+    border-top: 1px solid #e8f5ec;
+    font-weight: 500;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* ===== ВИДЖЕТ 2: каунтдаун ===== */
+.widget-accent {
+    background: linear-gradient(145deg, #ffffff, #f4fbf6);
+    border-color: #ef4444;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4fbf6;
+    border: 1px solid #d4e8da;
+    border-radius: 14px;
+    padding: 20px 8px;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+
+    .countdown-unit:hover {
+        border-color: #ef4444;
+        background: #ffffff;
+        transform: scale(1.03);
+    }
+
+.countdown-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ef4444;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.countdown-label {
+    font-size: 0.68rem;
+    color: #4a6b55;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.countdown-target {
+    font-size: 0.82rem;
+    color: #4a6b55;
+    text-align: center;
+    font-weight: 500;
+    flex: 0 0 auto;
+}
+
+/* ===== ВИДЖЕТ 3: топ-5 видео ===== */
+.video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.video-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    background: #f4fbf6;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+    .video-item:hover {
+        background: #ffffff;
+        border-color: #ef4444;
+        transform: translateX(2px);
+    }
+
+.video-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #e8f5ec;
+    display: block;
+    min-width: 200px;
+}
+
+.video-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.video-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #1a1a1a;
+}
+
+.video-meta {
+    font-size: 0.72rem;
+    color: #4a6b55;
+    font-weight: 500;
+}
+
+.video-rank {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #ffffff;
+    background: #ef4444;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -0.02em;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    z-index: 2;
+}
+
+/* ===== ВИДЖЕТ 4: комментарии ===== */
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-item {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 12px;
+    padding: 14px;
+    background: #f4fbf6;
+    border: 1px solid #d4e8da;
+    border-radius: 12px;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+    .comment-item:hover {
+        border-color: #ef4444;
+        background: #ffffff;
+        transform: translateX(2px);
+    }
+
+.comment-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e8f5ec, #c8e6d0);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 2px solid #ef4444;
+}
+
+.comment-body {
+    min-width: 0;
+}
+
+.comment-author {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 4px;
+}
+
+.comment-text {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.comment-meta {
+    font-size: 0.72rem;
+    color: #4a6b55;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: 500;
+}
+
+.comment-likes {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.comment-source {
+    color: #7fa68d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+/* ===== ВИДЖЕТ 5: последнее видео ===== */
+.latest-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.video-thumb-large {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: block;
+    background: #e8f5ec;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.latest-link .video-title {
+    font-size: 1.05rem;
+    -webkit-line-clamp: 3;
+    margin-bottom: 8px;
+}
+
+/* ===== ВИДЖЕТ 6: диаграмма ===== */
+.chart-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.chart-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    flex: 0 0 auto;
+}
+
+.chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #f4fbf6;
+    border: 1px solid #d4e8da;
+    border-radius: 10px;
+}
+
+.chart-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.chart-legend-value {
+    margin-left: auto;
+    font-weight: 700;
+}
+
+.chart-legend-label {
+    color: #4a6b55;
+    font-size: 0.76rem;
+}
+
+/* ===== ЗАГРУЗКА ===== */
+.loading {
+    color: #4a6b55;
+    font-size: 0.9rem;
+    padding: 12px 0;
+    font-weight: 500;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 900px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .channel-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .channel-name {
+        font-size: 1.3rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .video-item {
+        grid-template-columns: 110px 1fr;
+    }
+
+    .chart-wrapper {
+        min-height: 260px;
+    }
+}
