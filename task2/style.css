@@ -213,7 +213,6 @@ body {
 /* ===== ВИДЖЕТ 2: каунтдаун ===== */
 .widget-accent {
     background: linear-gradient(145deg, #ffffff, #f4fbf6);
-    border-color: #ef4444;
 }
 
 .countdown {
