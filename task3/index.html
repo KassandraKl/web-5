@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>ПРИЗРАК И СКЕЛЕТИК игра к Хэллоуину</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="game-wrap">
+        <header>
+            <h1>Ты призрак - спаси скелетика</h1>
+            <div id="hud">
+                <span class="hud-item">ЧАСТИ: <b id="score">0</b>/3</span>
+                <span class="hud-item">РЕКОРД: <b id="record">--</b></span>
+                <span class="hud-item">ВРЕМЯ: <b id="timer">0.0</b></span>
+                <button id="sound-btn" class="pix-btn small">ЗВУК: ВКЛ</button>
+            </div>
+        </header>
+
+        <div id="canvas-wrap">
+            <canvas id="game" width="960" height="540"></canvas>
+
+            <div id="overlay" class="overlay">
+                <div class="panel">
+                    <h2 id="overlay-title">СПАСИ СКЕЛЕТИКА</h2>
+                    <p id="overlay-text">
+                        Собери 3 части скелетика и доберись до пещеры.<br>
+                        ← → или A D — движение, SPACE / W — прыжок.<br>
+                        Осторожно: шипы, летучие мыши и пропасти!
+                    </p>
+                    <button id="start-btn" class="pix-btn">СТАРТ</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="controls">
+            <button id="btn-left" class="ctrl pix-btn">ЛЕВО</button>
+            <button id="btn-jump" class="ctrl pix-btn">ПРЫЖОК</button>
+            <button id="btn-right" class="ctrl pix-btn">ПРАВО</button>
+        </div>
+
+        <div id="game-buttons">
+            <button id="pause-btn" class="pix-btn">ПАУЗА</button>
+            <button id="restart-btn" class="pix-btn">ЗАНОВО</button>
+        </div>
+
+        <p class="hint">
+            ←/→ или A/D — движение · SPACE/↑/W — прыжок ·
+            ESC/P — пауза. 
+        </p>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

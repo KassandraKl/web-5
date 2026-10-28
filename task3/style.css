@@ -1,0 +1,210 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #0d0714;
+    color: #c8b8d8;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background-image: linear-gradient(45deg, #150c22 25%, transparent 25%), linear-gradient(-45deg, #150c22 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #150c22 75%), linear-gradient(-45deg, transparent 75%, #150c22 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+    background-color: #0d0714;
+}
+
+#game-wrap {
+    width: 100%;
+    max-width: 1000px;
+    background: #1a1024;
+    padding: 14px;
+    border: 4px solid #4a2a6a;
+    box-shadow: 0 0 0 4px #0d0714, 0 0 0 8px #2a1640, 0 12px 0 8px rgba(0,0,0,.7);
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #4a2a6a;
+}
+
+h1 {
+    font-size: 14px;
+    margin: 0;
+    color: #b47aff;
+    text-shadow: 2px 2px 0 #6d1f6a, 4px 4px 0 #0d0714;
+    letter-spacing: 1px;
+}
+
+#hud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    font-size: 8px;
+}
+
+.hud-item {
+    background: #0d0714;
+    padding: 6px 8px;
+    border: 3px solid #4a2a6a;
+    color: #8a7aa0;
+}
+
+    .hud-item b {
+        color: #b47aff;
+    }
+
+.pix-btn {
+    font-family: inherit;
+    font-size: 9px;
+    color: #ffffff;
+    background: #6d1f6a;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: inset -4px -4px 0 0 #3a0e38, inset 4px 4px 0 0 #9a3a96, 0 4px 0 0 #0d0714;
+    transition: transform .06s, box-shadow .06s;
+    letter-spacing: .5px;
+}
+
+    .pix-btn:hover {
+        filter: brightness(1.12);
+    }
+
+    .pix-btn:active {
+        transform: translateY(3px);
+        box-shadow: inset -4px -4px 0 0 #3a0e38, inset 4px 4px 0 0 #9a3a96, 0 1px 0 0 #0d0714;
+    }
+
+    .pix-btn.small {
+        font-size: 7px;
+        padding: 6px 8px;
+    }
+
+#sound-btn {
+    background: #6a4a1a;
+    box-shadow: inset -4px -4px 0 0 #3a280e, inset 4px 4px 0 0 #9a7a3a, 0 4px 0 0 #0d0714;
+}
+
+#canvas-wrap {
+    position: relative;
+    border: 4px solid #0d0714;
+    background: #0a0510;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    touch-action: none;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 4, 16, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: opacity .15s;
+}
+
+    .overlay.hidden {
+        display: none;
+    }
+
+.panel {
+    background: #1a1024;
+    padding: 24px 28px;
+    border: 4px solid #4a2a6a;
+    box-shadow: 0 0 0 4px #0d0714, 8px 8px 0 0 #0d0714;
+    text-align: center;
+    max-width: 540px;
+}
+
+    .panel h2 {
+        margin: 0 0 16px;
+        font-size: 14px;
+        color: #b47aff;
+        text-shadow: 2px 2px 0 #6d1f6a;
+    }
+
+    .panel p {
+        margin: 0 0 20px;
+        font-size: 9px;
+        line-height: 2;
+        color: #8a7aa0;
+    }
+
+#controls {
+    display: none;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.ctrl {
+    flex: 1;
+    padding: 20px 0;
+    font-size: 9px;
+    background: #2a1640;
+    box-shadow: inset -4px -4px 0 0 #150c22, inset 4px 4px 0 0 #4a2a6a, 0 4px 0 0 #0d0714;
+    touch-action: none;
+    user-select: none;
+}
+
+    .ctrl:active {
+        transform: translateY(3px);
+        box-shadow: inset -4px -4px 0 0 #150c22, inset 4px 4px 0 0 #4a2a6a, 0 1px 0 0 #0d0714;
+    }
+
+#game-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+    #game-buttons button {
+        flex: 1;
+        background: #4a2a6a;
+        box-shadow: inset -4px -4px 0 0 #2a1640, inset 4px 4px 0 0 #6a3a8a, 0 4px 0 0 #0d0714;
+    }
+
+.hint {
+    font-size: 7px;
+    color: #4a3a5a;
+    margin: 12px 0 0;
+    text-align: center;
+    line-height: 1.9;
+}
+
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
+    #controls {
+        display: flex;
+    }
+
+    .hint {
+        display: none;
+    }
+}
